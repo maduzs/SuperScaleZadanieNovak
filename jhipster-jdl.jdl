@@ -1,0 +1,39 @@
+entity TaskConfig {
+	id String,
+    type TaskType required,
+    meta TaskMeta required
+}
+
+entity Task {
+	id String,
+    name String required,
+    type TaskType required
+}
+
+entity TaskMeta {
+	name String,
+    type TaskFieldType
+}
+
+enum TaskType {
+    WASH_DISHES, VACUUM_CLEAN
+}
+
+enum TaskFieldType {
+    STRING, NUMBER, DATE
+}
+
+relationship OneToMany {
+  TaskConfig to TaskMeta
+}
+
+paginate TaskType, Task with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+ service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "baseName": "superScaleZadanieNovak",
+    "clientFramework": "angular",
+    "clientTestFrameworks": ["cypress"],
+    "clientTheme": "none",
+    "creationTimestamp": 1737542214081,
+    "cypressAudit": false,
+    "cypressCoverage": false,
+    "enableTranslation": false,
+    "entities": [],
+    "jhipsterVersion": "8.8.0",
+    "microfrontend": null,
+    "microfrontends": [],
+    "nativeLanguage": "en",
+    "skipServer": true,
+    "testFrameworks": ["cypress"],
+    "withAdminUi": false
+  }
+}
