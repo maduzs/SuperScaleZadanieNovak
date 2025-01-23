@@ -14,7 +14,7 @@ import NavbarItem from './navbar-item.model';
   selector: 'jhi-navbar',
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
-  imports: [RouterModule, SharedModule, HasAnyAuthorityDirective],
+  imports: [RouterModule, SharedModule],
 })
 export default class NavbarComponent implements OnInit {
   inProduction?: boolean;
@@ -37,10 +37,10 @@ export default class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.entitiesNavbarItems = EntityNavbarItems;
-    this.profileService.getProfileInfo().subscribe(profileInfo => {
-      this.inProduction = profileInfo.inProduction;
-      this.openAPIEnabled = profileInfo.openAPIEnabled;
-    });
+    // this.profileService.getProfileInfo().subscribe(profileInfo => {
+    //   this.inProduction = profileInfo.inProduction;
+    //   this.openAPIEnabled = profileInfo.openAPIEnabled;
+    // });
   }
 
   collapseNavbar(): void {

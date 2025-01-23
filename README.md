@@ -12,85 +12,34 @@ We provide a wrapper to launch npm.
 You will only need to run this command when dependencies change in [package.json](package.json).
 
 ```
-./npmw install
+./npm install
 ```
 
-We use npm scripts and [Angular CLI][] with [Webpack][] as our build system.
-
-Run the following commands in two separate terminals to create a blissful development experience where your browser
+Run the following command to run and create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
 
 ```
-./mvnw
-./npmw start
+./npm start
 ```
 
-Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `./npmw update` and `./npmw install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `./npmw help update`.
+The `./npm run` command will list all the scripts available to run for this project.
 
-The `./npmw run` command will list all the scripts available to run for this project.
+## READ! Assignment setup
 
-### PWA Support
+Use the menu items
 
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
+![img.png](img.png)
 
-The service worker initialization code is disabled by default. To enable it, uncomment the following code in `src/main/webapp/app/app.config.ts`:
+If you want to extend/modify the configuration of object metadata, you have to configure it _per_ Task Type in **Task Config** page
 
-```typescript
-ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
-```
+The specific metadata is then set up in **Task Meta** page
 
-### Managing dependencies
+For the sake of assignment, the initial metadata config is mocked in service - you will lose your changes after browser refresh
 
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
+If you want to extend the Task Type, you have to extend the enum **`TaskType`** in [task-type.model.ts](src/main/webapp/app/entities/enumerations/task-type.model.ts)
 
-```
-./npmw install --save --save-exact leaflet
-```
+If you want to support more data types, extend enum `TaskFieldType` in [task-field-type.model.ts](src/main/webapp/app/entities/enumerations/task-field-type.model.ts) and adjust the templates accordingly 
 
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
-
-```
-./npmw install --save-dev --save-exact @types/leaflet
-```
-
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Edit [src/main/webapp/app/app.config.ts](src/main/webapp/app/app.config.ts) file:
-
-```
-import 'leaflet/dist/leaflet.js';
-```
-
-Edit [src/main/webapp/content/scss/vendor.scss](src/main/webapp/content/scss/vendor.scss) file:
-
-```
-@import 'leaflet/dist/leaflet.css';
-```
-
-Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
-
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-### Using Angular CLI
-
-You can also use [Angular CLI][] to generate some custom client code.
-
-For example, the following command:
-
-```
-ng generate component my-component
-```
-
-will generate few files:
-
-```
-create src/main/webapp/app/my-component/my-component.component.html
-create src/main/webapp/app/my-component/my-component.component.ts
-update src/main/webapp/app/app.config.ts
-```
-
-## Building for production
 
 ## Testing
 
@@ -99,7 +48,7 @@ update src/main/webapp/app/app.config.ts
 Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
 
 ```
-./npmw test
+./npm test
 ```
 
 UI end-to-end tests are powered by [Cypress][]. They're located in [src/test/javascript/cypress](src/test/javascript/cypress)

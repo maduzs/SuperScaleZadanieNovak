@@ -1,18 +1,17 @@
+entity TaskMeta {
+	name String,
+    type TaskFieldType
+}
+
 entity TaskConfig {
 	id String,
-    type TaskType required,
-    meta TaskMeta required
+    type TaskType required
 }
 
 entity Task {
 	id String,
     name String required,
     type TaskType required
-}
-
-entity TaskMeta {
-	name String,
-    type TaskFieldType
 }
 
 enum TaskType {
@@ -24,10 +23,10 @@ enum TaskFieldType {
 }
 
 relationship OneToMany {
-  TaskConfig to TaskMeta
+  TaskConfig {metas required} to TaskMeta
 }
 
-paginate TaskType, Task with infinite-scroll
+paginate TaskMeta, TaskConfig, Task with infinite-scroll
 
 // Use Data Transfert Objects (DTO)
  dto * with mapstruct

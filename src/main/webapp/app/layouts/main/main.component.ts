@@ -12,13 +12,12 @@ import PageRibbonComponent from '../profiles/page-ribbon.component';
   providers: [AppPageTitleStrategy],
   imports: [RouterOutlet, FooterComponent, PageRibbonComponent],
 })
-export default class MainComponent implements OnInit {
-  private readonly router = inject(Router);
-  private readonly appPageTitleStrategy = inject(AppPageTitleStrategy);
-  private readonly accountService = inject(AccountService);
-
-  ngOnInit(): void {
-    // try to log in automatically
-    this.accountService.identity().subscribe();
-  }
+export default class MainComponent {
+  // private readonly router = inject(Router);
+  // private readonly appPageTitleStrategy = inject(AppPageTitleStrategy);
+  // private readonly accountService = inject(AccountService);
+  // ngOnInit(): void {
+  //   // try to log in automatically
+  //   this.accountService.identity().subscribe();
+  // }
 }

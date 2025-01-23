@@ -17,12 +17,12 @@ import { ProfileService } from './profile.service';
   styleUrl: './page-ribbon.component.scss',
   imports: [SharedModule],
 })
-export default class PageRibbonComponent implements OnInit {
+export default class PageRibbonComponent {
   ribbonEnv$?: Observable<string | undefined>;
 
   private readonly profileService = inject(ProfileService);
 
-  ngOnInit(): void {
-    this.ribbonEnv$ = this.profileService.getProfileInfo().pipe(map(profileInfo => profileInfo.ribbonEnv));
-  }
+  // ngOnInit(): void {
+  //   this.ribbonEnv$ = this.profileService.getProfileInfo().pipe(map(profileInfo => profileInfo.ribbonEnv));
+  // }
 }
