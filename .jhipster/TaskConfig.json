@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20250122110148"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TaskType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "WASH_DISHES,VACUUM_CLEAN"
+    }
+  ],
+  "name": "TaskConfig",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "taskMeta",
+      "relationshipName": "metas",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "serviceImpl"
+}

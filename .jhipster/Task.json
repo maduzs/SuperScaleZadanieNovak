@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "changelogDate": "20250122110149"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TaskType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "WASH_DISHES,VACUUM_CLEAN"
+    }
+  ],
+  "name": "Task",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,22 @@
+{
+  "annotations": {
+    "changelogDate": "20250122110147"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TaskFieldType",
+      "fieldValues": "STRING,NUMBER,DATE"
+    }
+  ],
+  "name": "TaskMeta",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "service": "serviceImpl"
+}

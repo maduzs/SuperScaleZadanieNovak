@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (taskMeta(); as taskMetaRef) {
+      <div>
+        <h2 data-cy="taskMetaDetailsHeading"><span>Task Meta</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>ID</span></dt>
+          <dd>
+            <span>{{ taskMetaRef.id }}</span>
+          </dd>
+          <dt><span>Name</span></dt>
+          <dd>
+            <span>{{ taskMetaRef.name }}</span>
+          </dd>
+          <dt><span>Type</span></dt>
+          <dd>
+            <span>{{ { null: '', STRING: 'STRING', NUMBER: 'NUMBER', DATE: 'DATE' }[taskMetaRef.type ?? 'null'] }}</span>
+          </dd>
+          <dt><span>Task Config</span></dt>
+          <dd>
+            @if (taskMeta()!.taskConfig) {
+              <div>
+                <a [routerLink]="['/task-config', taskMeta()!.taskConfig?.id, 'view']">{{
+                  taskMetaRef.taskConfig?.id | taskConfigByIdAsync | async | readableEnum: TaskType
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/task-meta', taskMetaRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
